@@ -6,7 +6,7 @@ jobs:
   pytest:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/osgeo/gdal:ubuntu-small-latest
+      image: ghcr.io/osgeo/gdal:ubuntu-full-latest
     strategy:
       fail-fast: false
       matrix:
