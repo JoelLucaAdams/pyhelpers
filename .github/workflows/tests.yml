@@ -20,6 +20,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Postgres
       run: |
+        apt-get remove libpq5
         apt-get install libpq-dev
     # - name: Install GDAL
     #   run: |
