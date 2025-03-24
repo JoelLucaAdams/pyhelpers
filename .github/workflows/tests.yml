@@ -22,6 +22,7 @@ jobs:
       run: |
         apt-get update
         apt-get install -y libpq-dev python3-dev 
+        apt install build-essential
     # - name: Install GDAL
     #   run: |
     #     sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
