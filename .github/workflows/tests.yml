@@ -18,6 +18,11 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
+    - name: Cache NLTK data
+      uses: actions/cache@v2
+      with:
+        path: ~/.nltk_data
+        key: ${{ runner.os }}-nltk-${{ hashFiles('**/requirements.txt') }}
     - name: Install PostgreSQL
       run: |
         apt-get update
@@ -29,6 +34,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install -r requirements.txt
+    - name: Download NLTK data
+      run: |
+        python -m nltk.downloader punkt
     - name: Test with pytest
       run: |
         python -m pytest
